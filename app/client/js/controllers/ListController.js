@@ -1,19 +1,20 @@
 var appControllers=angular.module('app.controllers',[]);
 appControllers.controller('ListController',function($scope,toaster,EmployeeService){
 
-    console.log("List controller is hokked up")
+    console.log("List controller is hooked up")
 
-    EmployeeService.getEmployees()
-    .then(function(response){
-    	console.log("Got all employees"+response.data);
-    	$scope.employees=response.data;
-    })
+    var loadEmployees=function(){
+    	EmployeeService.getEmployees()
+                  .then(function(response){
+    	            console.log("Got all employees"+response.data);
+    	            $scope.employees=response.data;
+                })
+      }
+
+    loadEmployees();  
 
     $scope.employee={}
-
-
-    $scope.genders=["Male","Female"];
-                         
+    $scope.genders=["Male","Female"];                        
     $scope.employee.gender = $scope.genders[0];
     
 
@@ -29,7 +30,8 @@ appControllers.controller('ListController',function($scope,toaster,EmployeeServi
               .then(function(){
         	     console.log("Added");
         	     toaster.pop('success',"Record added successfully")
-                 
+                 loadEmployees();
+                 $scope.employee={}
 
                 }).catch(function(){
         	 toaster.pop('error',"Error occured while adding record")
@@ -54,7 +56,38 @@ appControllers.controller('ListController',function($scope,toaster,EmployeeServi
         return false;
     }
 
+    $scope.delete=function(employee){
+        console.log("Deleting document with "+employee._id)
+        EmployeeService.deleteEmployee(employee._id)
+        .then(function(data){
+        	toaster.pop('success','Record deleted successfully')
+        	loadEmployees();
+        })
+    }
 
+
+    $scope.edit=function(employee){
+    	$scope.employee=employee;
+    }
+
+    $scope.update=function(employee){
+    	console.log("Updating employee "+JSON.stringify(employee));
+    	if(validateForm(employee)){
+        	EmployeeService.updateEmployee(employee._id,employee)
+              .then(function(){
+        	     console.log("Updated");
+        	     toaster.pop('success',"Record updated successfully")
+                 loadEmployees();
+                 $scope.employee={}
+
+                }).catch(function(){
+        	 toaster.pop('error',"Error occured while updating record")
+              })
+       }else{
+       	     toaster.pop('error',"Please fill in all the fields ")
+       }
+
+    }
 
 
 });

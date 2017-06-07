@@ -21,7 +21,12 @@ app.get('/', function(req,res) {
 
 
 app.get('/employee',routes.getEmployees);
+app.get('/employee/:id',routes.getEmployee);
+
 app.post('/employee',routes.addEmployee);
+app.delete('/employee/:id',routes.deleteEmployee);
+
+app.put('/employee/:id',routes.updateEmployee);
 
 /*app.get('/employee',routes.getEmployees);
 app.get('/employee/:id',routes.getEmployee);

@@ -65,23 +65,23 @@
               
               <td>
               <span ng-click="add(employee)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-plus"></span>
-              <span style="font-size:18px;cursor:pointer;margin-right:10px" class="icon-edit "></span>
+              <span ng-click="update(employee)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-edit"></span>
               </td>
              
               </form>              
             </tr>       
 
            <tr ng-repeat="emp in employees">
+              <td>{{emp.first_name}}</td>
+              <td>{{emp.last_name}}</td>
               <td>{{emp.email}}</td>
-              <td>{{emp.name}}</td>
-              <td>{{emp.department}}</td>
               <td>{{emp.age}}</td>
               <td>{{emp.gender}}</td>
-              <td>{{emp.dob | date:'yyyy-MM-dd'}}</td>
+              <td>{{emp.dob | date:'dd-MM-yyyy'}}</td>
               
-              <td>
-                  <button class="btn btn-danger btn-sm" ng-click="removeEmployee(employee._id)">Delete</button>&nbsp;&nbsp;
-                  <button class="btn btn-primary btn-sm" ng-click="editEmployee(employee._id)">Edit</button>
+               <td>
+              <span ng-click="edit(emp)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-edit"></span>
+              <span ng-click="delete(emp)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-trash "></span>
               </td>
             </tr>
 
