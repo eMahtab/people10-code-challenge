@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code Challenge</title>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" 
+          href="vendor/bootstrap-additions/dist/bootstrap-additions.min.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" 
+          rel="stylesheet">    
+    <link rel="stylesheet" type="text/css" href="vendor/AngularJS-Toaster/toaster.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+         
+
+</head>
+
+<body ng-app="employeeApp" ng-controller="ListController">
+    <div class="container" >
+
+     <toaster-container></toaster-container>
+      <br/>
+      <h1 align="center">Employee Directory</h1><br/><br/>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>First Name <span class="mandatory-field">*</span></td>
+            <td>Last Name <span class="mandatory-field">*</span></td>
+            <td>Email <span class="mandatory-field">*</span></td>
+            <td>Age <span class="mandatory-field">*</span></td>
+            <td>Gender <span class="mandatory-field">*</span></td>
+            <td>Date of birth <span class="mandatory-field">*</span></td>            
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <form name="employeeForm" novalidate>
+              <td>          
+              <input type="text" ng-model="employee.first_name" title="Enter your first name" 
+                     class="form-control" placeholder="First name" />              
+              </td>
+
+              <td>
+              <input type="text" ng-model="employee.last_name"  title="Enter your last name" 
+                     class="form-control" placeholder="Last name" />
+              </td>
+
+              <td>
+              <input type="text" class="form-control"  placeholder="Email" ng-model="employee.email" 
+                     title="Enter your email"/>
+              </td>  
+
+              <td>
+              <input type="number" min="18" max="80" title="Age can only be a whole number" 
+                     class="form-control"  placeholder="Age" ng-model="employee.age" />
+              </td>
+
+              <td>              
+              <select name="sex" style="min-width:100px;" class="form-control"
+		              ng-model="employee.gender" ng-options="g for g in genders" >
+		      </select >
+              </td>
+
+              <td>
+              <input type="text" id="datepicker" class="form-control" placeholder="dd/mm/yyyy"       ng-model="employee.dob" bs-datepicker />
+              </td>               
+              
+              <td>
+              <span ng-click="add(employee)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-plus"></span>
+              <span style="font-size:18px;cursor:pointer;margin-right:10px" class="icon-edit "></span>
+              </td>
+             
+              </form>              
+            </tr>       
+
+           <tr ng-repeat="emp in employees">
+              <td>{{emp.email}}</td>
+              <td>{{emp.name}}</td>
+              <td>{{emp.department}}</td>
+              <td>{{emp.age}}</td>
+              <td>{{emp.gender}}</td>
+              <td>{{emp.dob | date:'yyyy-MM-dd'}}</td>
+              
+              <td>
+                  <button class="btn btn-danger btn-sm" ng-click="removeEmployee(employee._id)">Delete</button>&nbsp;&nbsp;
+                  <button class="btn btn-primary btn-sm" ng-click="editEmployee(employee._id)">Edit</button>
+              </td>
+            </tr>
+
+        </tbody>
+        </table>
+    </div>
+
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="vendor/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="vendor/angular-animate/angular-animate.min.js"></script>
+    <script src="vendor/AngularJS-Toaster/toaster.min.js"></script>
+
+
+    <script src="/js/constants.js"></script>
+    <script src="/js/services/EmployeeService.js"></script>
+    <script src="/js/controllers/ListController.js"></script>
+    <script src="/app.js"></script>
+
+    <!--  <script src="/libs/js/angular.min.js"></script>
+     <script src="/controllers/controller.js"></script> -->
+</body>
+
+</html>
