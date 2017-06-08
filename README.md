@@ -4,9 +4,10 @@ People10 AngularJS  Code Challenge
 Simple CRUD application built using MEAN stack demo(https://people10.herokuapp.com)
 
 Prerequisite
-. Node version 6.10.1 or greater
-. NPM version 3.10.10 or greater
-. MongoDB version 3.4.2 or greater
+
+1. Node version 6.10.1 or greater
+2. NPM version 3.10.10 or greater
+3. MongoDB version 3.4.2 or greater
 
 
 
