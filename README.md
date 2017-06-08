@@ -3,7 +3,7 @@ People10 AngularJS  Code Challenge
 
 Simple CRUD application built using MEAN stack demo(https://people10.herokuapp.com)
 
-Prerequisite
+# Prerequisite
 
 1. Node version 6.10.1 or greater
 2. NPM version 3.10.10 or greater
@@ -11,8 +11,10 @@ Prerequisite
 
 
 
-Development
-First make sure MongoDB is running on default port 27017, then execute below commands 
+# Development
+
+First make sure MongoDB is running on default port 27017, then execute below commands
+
 ```
 git clone https://github.com/eMahtab/people10-code-challenge
 cd people10-code-challenge
