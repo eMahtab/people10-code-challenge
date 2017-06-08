@@ -1,8 +1,6 @@
 var mongoose = require( 'mongoose' );
 
-//var dbURI = 'mongodb://localhost/people10';
-
-var dbURI = 'mongodb://people10:people10mlab@ds115712.mlab.com:15712/people10';
+var dbURI = 'mongodb://localhost/people10';
 
 mongoose.connect(dbURI);
 
