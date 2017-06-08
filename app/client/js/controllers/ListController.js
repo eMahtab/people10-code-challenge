@@ -66,7 +66,7 @@ appControllers.controller('ListController',function($scope,toaster,EmployeeServi
 
 
     $scope.edit=function(employee){
-    	$scope.employee=employee;
+    	$scope.employee=angular.copy(employee);
     }
 
     $scope.update=function(employee){
