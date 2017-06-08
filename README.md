@@ -1,7 +1,7 @@
 # people10-code-challenge
 People10 AngularJS  Code Challenge
 
-Simple CRUD application built using MEAN stack demo(https://people10.herokuapp.com)
+Simple CRUD application built using MEAN stack demo (https://people10.herokuapp.com)
 
 # Prerequisite
 
