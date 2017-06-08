@@ -21,7 +21,7 @@ appControllers.controller('ListController',function($scope,toaster,EmployeeServi
     $scope.onSubmit=function(){
     	console.log("Submitting the form")
     }
-
+    
 
     $scope.add=function(employee){
     	console.log("Add is called" +JSON.stringify(employee));
@@ -42,14 +42,13 @@ appControllers.controller('ListController',function($scope,toaster,EmployeeServi
     }
 
 
-    function validateForm(employee){
-        /*if(employee.first_name)*/
-        if ( (employee.hasOwnProperty('first_name') && employee['first_name'] != '' ) &&
-        	 (employee.hasOwnProperty('last_name') && employee['last_name'] != '' ) &&
-        	 (employee.hasOwnProperty('email') && employee['email'] != '' ) &&
-        	 (employee.hasOwnProperty('age') && employee['age'] != '' ) &&
-        	 (employee.hasOwnProperty('gender') && employee['gender'] != '' ) &&
-        	 (employee.hasOwnProperty('dob') && employee['dob'] != '' ) ) {        	 
+    function validateForm(employee){       
+        if ( (employee.hasOwnProperty('first_name') && employee.first_name !== '' ) &&
+        	 (employee.hasOwnProperty('last_name') && employee.last_name !== '' ) &&
+        	 (employee.hasOwnProperty('email') && employee.email !== '' ) &&
+        	 (employee.hasOwnProperty('age') && employee.age !== '' ) &&
+        	 (employee.hasOwnProperty('gender') && employee.gender !== '' ) &&
+        	 (employee.hasOwnProperty('dob') && employee.dob !== '' ) ) {        	 
 
              return true;
         }
