@@ -19,8 +19,6 @@ exports.addEmployee=function(req,res){
 
    }
 
-
-
 exports.getEmployees=function(req,res){
                               Employee.find({}, function(err, records){
 

@@ -3,7 +3,7 @@ var app=angular.module('employeeApp',['mgcrea.ngStrap','toaster','ngAnimate',
 
 app.config(function($datepickerProvider) {
   angular.extend($datepickerProvider.defaults, {
-    dateFormat: 'dd/MM/yyyy',
+    dateFormat: 'dd-MM-yyyy',
     autoclose:true
   });
 })

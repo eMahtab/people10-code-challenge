@@ -2,3 +2,38 @@
 	font-size:16px;
 	color:brown
 }
+
+.table>tbody>tr>td{
+	vertical-align: middle !important;
+}
+
+.add-icon{
+	font-size:18px;
+	cursor:pointer;
+	margin-right:10px;
+}
+
+.update-icon{
+	font-size:18px;
+	cursor:pointer;
+	margin-right:10px;
+}
+
+.gender-input{
+	min-width:95px;
+}
+
+
+#action{
+	padding:0px !important;
+}
+
+#edit-button{
+	font-size:18px;
+	cursor:pointer;
+}
+
+#delete-button{
+	font-size:16px;
+	cursor:pointer;
+}

@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Code Challenge</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" 
           href="vendor/bootstrap-additions/dist/bootstrap-additions.min.css">
@@ -18,7 +20,7 @@
 
      <toaster-container></toaster-container>
       <br/>
-      <h1 align="center">Employee Directory</h1><br/><br/>
+      <h3 align="center">Employee Directory</h3><br/><br/>
       <table class="table">
         <thead>
           <tr>
@@ -45,27 +47,29 @@
 
               <td>
               <input type="text" class="form-control"  placeholder="Email" ng-model="employee.email" 
-                     title="Enter your email"/>
+                     title="Enter a valid email address"/>
               </td>  
 
               <td>
-              <input type="number" min="18" max="80" title="Age can only be a whole number" 
+              <input type="number" title="Enter age as a whole number" 
                      class="form-control"  placeholder="Age" ng-model="employee.age" />
               </td>
 
               <td>              
-              <select name="sex" style="min-width:100px;" class="form-control"
+              <select title="Choose your gender" class="form-control gender-input"
 		              ng-model="employee.gender" ng-options="g for g in genders" >
 		      </select >
               </td>
 
               <td>
-              <input type="text" id="datepicker" class="form-control" placeholder="dd/mm/yyyy"       ng-model="employee.dob" bs-datepicker />
+              <input type="text" id="datepicker" class="form-control" placeholder="dd-mm-yyyy"       ng-model="employee.dob" bs-datepicker />
               </td>               
               
               <td>
-              <span ng-click="add(employee)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-plus"></span>
-              <span ng-click="update(employee)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-edit"></span>
+              <span ng-show="!updating" title="Add new employee" ng-click="add(employee)"
+                    class="icon-plus add-icon"></span>
+              <span ng-show="updating" title="Update employee" ng-click="update(employee)" 
+                    class="icon-edit update-icon"></span>
               </td>
              
               </form>              
@@ -79,9 +83,11 @@
               <td>{{emp.gender}}</td>
               <td>{{emp.dob | date:'dd-MM-yyyy'}}</td>
               
-               <td>
-              <span ng-click="edit(emp)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-edit"></span>
-              <span ng-click="delete(emp)" style="font-size:18px;cursor:pointer;margin-right:10px"      class="icon-trash "></span>
+              <td id="action">
+              <span id="edit-button" title="Update employee" ng-click="edit(emp)" 
+                    class="icon-edit"></span>
+              <span id="delete-button" title="Delete employee" ng-click="delete(emp)" 
+                    class="icon-trash pull-right"></span>
               </td>
             </tr>
 
@@ -94,15 +100,10 @@
     <script src="vendor/angular-strap/dist/angular-strap.tpl.min.js"></script>
     <script src="vendor/angular-animate/angular-animate.min.js"></script>
     <script src="vendor/AngularJS-Toaster/toaster.min.js"></script>
-
-
     <script src="/js/constants.js"></script>
     <script src="/js/services/EmployeeService.js"></script>
     <script src="/js/controllers/ListController.js"></script>
     <script src="/app.js"></script>
-
-    <!--  <script src="/libs/js/angular.min.js"></script>
-     <script src="/controllers/controller.js"></script> -->
+    
 </body>
-
 </html>

@@ -2,7 +2,6 @@ var express=require('express');
 var bodyParser=require('body-parser');
 var mongoose=require('mongoose');
 
-
 var db=require('./config/db.js');
 var models=require('./models/employee.js');
 var routes=require('./routes/route.js');
@@ -19,7 +18,6 @@ app.get('/', function(req,res) {
   res.sendFile('index.html');
 });
 
-
 app.get('/employee',routes.getEmployees);
 app.get('/employee/:id',routes.getEmployee);
 
@@ -27,13 +25,6 @@ app.post('/employee',routes.addEmployee);
 app.delete('/employee/:id',routes.deleteEmployee);
 
 app.put('/employee/:id',routes.updateEmployee);
-
-/*app.get('/employee',routes.getEmployees);
-app.get('/employee/:id',routes.getEmployee);
-
-app.post('/employee',routes.addEmployee);
-app.put('/employee/:id',routes.updateEmployee);
-app.delete('/employee/:id',routes.deleteEmployee);*/
 
 var port = process.env.PORT || 8080;
 
